@@ -5,7 +5,7 @@ let input = document.querySelector(".main__input");
 function exploreHandler() {
     try {
         city = input.value;
-        link = `http://api.weatherapi.com/v1/current.json?key=f22b48abdd4943b2af6165250211510&q=${city}&aqi=no`;
+        link = `https://api.weatherapi.com/v1/current.json?key=f22b48abdd4943b2af6165250211510&q=${city}&aqi=no`;
 
         const request = new XMLHttpRequest();
         request.open("GET", link, false);
