@@ -26,12 +26,23 @@ function exploreHandler() {
 
         document.querySelector(".wind__speed").innerHTML =
             data.current.wind_kph;
-            document.querySelector(".wind__direction").innerHTML =
+            
+        document.querySelector(".wind__direction").innerHTML =
             data.current.wind_dir
+
+            let path = getImageNumber(data.current.condition.icon);
+
+            document.querySelector(".weather__icon").setAttribute("src", path);
         change_window();
     } catch {
         alert("Incorrect city name!");
     }
 }
-
+function getImageNumber(image_link) {
+    let parts = image_link.split("/");
+    let name = parts[parts.length - 1];
+    console.log(name);
+    let path = `./icons/${name}`;
+    return path;
+}
 btn.addEventListener("click", exploreHandler);
